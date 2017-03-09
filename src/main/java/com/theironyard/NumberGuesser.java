@@ -1,5 +1,7 @@
 package com.theironyard;
 
+import java.util.Random;
+
 /**
  * This class is used to guess a number up to a given number. It has one static
  * method, guessNumber(). Your job is to implement it as described below.
@@ -47,22 +49,21 @@ public class NumberGuesser {
      */
     public static int guessNumber(int correctNumber, int upTo){
         // todo: make an initial guess at the correct number
-
+        int initialGuess = new Random().nextInt(upTo + 1);
+        int attempts = 1;
 
 
         // todo: loop while the guess is incorrect. Be sure to use a while loop.
-
-
-
+        while(initialGuess != correctNumber) {
             // todo: guess again
-
-
-
+            initialGuess = new Random().nextInt(upTo + 1);
+            attempts++;
+        }
         // todo: output a string indicating the number of guesses made. It should read "It took XYZ tries to guess your number.", where XYZ is the number of attempts made.
-
+        System.out.println("It took " + attempts + " tries to guess your number.");
 
         // todo: return the guessed number
-        return -100;
+        return initialGuess;
     }
 
 }
